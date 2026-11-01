@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>iPhone Fake - allfiref06</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,sans-serif}
+body{background:#000;display:flex;justify-content:center;min-height:100vh}
+.iphone{width:100%;max-width:430px;min-height:100vh;background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)), url('https://images.unsplash.com/photo-1551028719-00167b16eac5'); background-size:cover; background-position:center; position:relative;display:flex;flex-direction:column;padding:12px 18px 20px;}
+.status{display:flex;justify-content:space-between;color:#fff;font-weight:600;font-size:15px;padding:6px 6px 18px;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.widget{background:rgba(255,255,255,.32);backdrop-filter:blur(20px);border-radius:22px;padding:14px 18px;color:#fff;margin-bottom:22px}
+.widget .city{font-size:15px}
+.widget .temp{font-size:42px;font-weight:300}
+.widget .desc{font-size:13px;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 16px;flex:1}
+.app{text-align:center;color:#fff;cursor:pointer}
+.app .icon{width:64px;height:64px;border-radius:14px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.3);overflow:hidden;position:relative;background:#222}
+.app .label{font-size:11px;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.app.disabled{opacity:.38;filter:grayscale(100%);}
+.app.disabled .icon:after{content:'🔒';position:absolute;bottom:-2px;right:-2px;background:#fff;border-radius:50%;width:20px;height:20px;font-size:11px;display:flex;align-items:center;justify-content:center}
+.dock{margin-top:auto;background:rgba(255,255,255,.32);backdrop-filter:blur(20px);border-radius:32px;padding:10px 12px;display:flex;justify-content:space-around}
+.dock .icon{width:58px;height:58px;border-radius:14px}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.88);color:#fff;padding:12px 20px;border-radius:22px;font-size:13px;display:none;z-index:99;text-align:center}
+</style>
+</head>
+<body>
+<div class="iphone">
+  <div class="status"><span>7:45</span><span>Seoul 18° • 72%</span></div>
+  <div class="widget">
+    <div class="city">Seoul</div>
+    <div class="temp">18°</div>
+    <div class="desc">Mostly cloudy • H:21° L:12°</div>
+  </div>
+  <div class="grid">
+    <div class="app" onclick="showToast('Free Fire dibuka 🔥')"><div class="icon" style="background:#000">F🔥</div><div class="label">Free Fire</div></div>
+    <div class="app" onclick="showToast('Photos dibuka')"><div class="icon" style="background:#fff">🌸</div><div class="label">Photos</div></div>
+    <div class="app" onclick="showToast('Camera dibuka')"><div class="icon" style="background:#aaa">📷</div><div class="label">Camera</div></div>
+    <div class="app" onclick="showToast('TikTok dibuka')"><div class="icon" style="background:#000">♪</div><div class="label">TikTok</div></div>
+    <div class="app" onclick="showToast('WhatsApp dibuka')"><div class="icon" style="background:#25D366">💬</div><div class="label">WhatsApp</div></div>
+    <div class="app" onclick="showToast('DANA dibuka')"><div class="icon" style="background:#fff;color:#118EEA;font-weight:900">DANA</div><div class="label">DANA</div></div>
+    <div class="app disabled" onclick="showToast('Play Store tidak dapat diunduh di perangkat ini 🔒 iPhone tidak mendukung Play Store')"><div class="icon" style="background:#eee">▶️</div><div class="label">Play Store</div></div>
+  </div>
+  <div class="dock">
+    <div class="icon" style="background:#34C759"></div>
+    <div class="icon" style="background:#34C759"></div>
+    <div class="icon" style="background:#007AFF"></div>
+    <div class="icon" style="background:#8E8E93"></div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.display='block';
+  setTimeout(()=>t.style.display='none',2600);
+}
+</script>
+</body>
+</html>
